@@ -5,10 +5,8 @@ class Store < ActiveRecord::Base
   validate :atleast_male_female
 
   def atleast_male_female
-    if male = true || female = true
-      true
-    else
-      false
+    if (!mens_apparel) && (!womens_apparel)
+      errors.add(:mens_apparel, "has to be atleast male or female")
     end
   end
 end

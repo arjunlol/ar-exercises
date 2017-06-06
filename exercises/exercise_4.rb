@@ -21,6 +21,11 @@ Store.create(name: "Yaletown",
   mens_apparel: true,
   womens_apparel: true)
 
+Store.create(name: "POO",
+  annual_revenue: 430000,
+  mens_apparel: false,
+  womens_apparel: false)
+
 @mens_stores = Store.where(mens_apparel: true)
 puts @mens_stores.pluck(:name, :annual_revenue)
 
@@ -28,3 +33,5 @@ puts @mens_stores.pluck(:name, :annual_revenue)
 
 @womens_stores = Store.where("womens_apparel = ? AND annual_revenue < ?", true, 1000000)
 puts @womens_stores
+
+puts Store.count
